@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { Link, useMatch, useResolvedPath } from 'react-router-dom';
 
 const CustomLink = ({to, children, ...props}) => {
