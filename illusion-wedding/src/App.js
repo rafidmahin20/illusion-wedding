@@ -19,10 +19,10 @@ function App() {
         <Route path='/services' element={<ServicePage/>}/>
         <Route path='/blogs' element={<Blogs/>}/>
         <Route path='/aboutme' element={<AboutMe/>}/>
-        <Route path='/footer' element={<Footer/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='*' element={<NotFound/>}/>
       </Routes>
+      <Footer/>
     </div>
   );
 }
