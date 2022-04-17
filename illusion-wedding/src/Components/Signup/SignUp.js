@@ -1,6 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Signhp = () => {
+  const navigate = useNavigate()
+  const navigateLogin = () =>{
+    navigate('/login')
+  }
     return (
         <section className='mb-20'>
           <div className='flex justify-center pt-20 pb-20'>
@@ -84,6 +89,9 @@ const Signhp = () => {
                   transition
                   duration-150
                   ease-in-out">Sign up</button>
+                  <p className="text-gray-800 mt-6 text-center">Already registered? <a onClick={ navigateLogin} href="#!"
+                        className="text-blue-600 hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out">Please Login</a>
+                    </p>
               </form>
             </div>
         </div>
