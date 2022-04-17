@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import auth from '../Firebase/Firebase.init';
 import Loading from '../Loading/Loading';
@@ -10,6 +10,10 @@ const Login = () => {
     const navigate = useNavigate();
     const emailRef = useRef('');
     const passRef = useRef('');
+    const location = useLocation();
+
+    let from = location.state?.from?.pathname || "/";
+    let errorElement;
     const [
         signInWithEmailAndPassword,
         user,
@@ -21,7 +25,10 @@ const Login = () => {
         navigate('/signup');
     }
     if(user){
-        console.log(user);
+        navigate(from, {replace: true});
+    }
+    if(error){
+        errorElement = <p className='text-red-400'>Error: {error?.message}</p>
     }
     if(loading){
         return <Loading/>
@@ -48,7 +55,9 @@ const Login = () => {
                 <form onSubmit={handleLogin}>
                     <div className="form-group mb-6">
                     <label  className="form-label inline-block mb-2 text-gray-700">Email address</label>
-                    <input type="email" className="form-control
+                    <input  
+                    ref={emailRef}
+                    type="email" className="form-control
                         block
                         w-full
                         px-3
@@ -67,7 +76,9 @@ const Login = () => {
                     </div>
                     <div className="form-group mb-6">
                     <label className="form-label inline-block mb-2 text-gray-700">Password</label>
-                    <input type="password" className="form-control block
+                    <input 
+                    ref={passRef}
+                    type="password" className="form-control block
                         w-full
                         px-3
                         py-1.5
@@ -118,7 +129,9 @@ const Login = () => {
                         className="text-blue-600 hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out">Register</a>
                     </p>
                     <Social/>
+                    {errorElement}
                 </form>
+                
             </div>
         </div>
         </section>
