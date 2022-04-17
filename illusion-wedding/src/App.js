@@ -8,6 +8,7 @@ import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
 import NotFound from './Components/NotFound/NotFound';
 import ServicePage from './Components/Services/ServicePage';
+import Signhp from './Components/Signup/SignUp';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path='/blogs' element={<Blogs/>}/>
         <Route path='/aboutme' element={<AboutMe/>}/>
         <Route path='/login' element={<Login/>}/>
+        <Route path='/signup' element={<Signhp/>}/>
         <Route path='*' element={<NotFound/>}/>
       </Routes>
       <Footer/>

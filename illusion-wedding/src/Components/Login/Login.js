@@ -1,6 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+    const navigate = useNavigate();
+
+    const navigateRegister = () =>{
+        navigate('/signup');
+    }
     return (
         <section className='mb-20'>
             <div className='flex justify-center pt-20 pb-20'>
@@ -72,7 +78,7 @@ const Login = () => {
                     transition
                     duration-150
                     ease-in-out">Sign in</button>
-                    <p className="text-gray-800 mt-6 text-center">Not a member? <a href="#!"
+                    <p className="text-gray-800 mt-6 text-center">Not a member? <a onClick={ navigateRegister} href="#!"
                         className="text-blue-600 hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out">Register</a>
                     </p>
                 </form>
