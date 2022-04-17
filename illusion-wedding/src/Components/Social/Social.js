@@ -3,6 +3,7 @@ import google from '../../Images/social/google.png';
 import { useSignInWithGoogle} from 'react-firebase-hooks/auth';
 import auth from '../Firebase/Firebase.init';
 import Loading from '../Loading/Loading';
+import './Socia;.css'
 
 
 const Social = () => {
