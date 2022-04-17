@@ -4,7 +4,7 @@ const Services = ({service}) => {
   const { name, picture, price, short_description } = service;
   return (
     <div>
-      <div className="flex justify-center">
+      <div className="flex justify-center pb-10">
         <div className="rounded-lg shadow-lg bg-white max-w-sm">
           <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
             <img
