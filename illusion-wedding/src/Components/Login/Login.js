@@ -1,18 +1,51 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import auth from '../Firebase/Firebase.init';
+import Loading from '../Loading/Loading';
 import Social from '../Social/Social';
 
 const Login = () => {
     const navigate = useNavigate();
+    const emailRef = useRef('');
+    const passRef = useRef('');
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+      ] = useSignInWithEmailAndPassword(auth);
 
     const navigateRegister = () =>{
         navigate('/signup');
+    }
+    if(user){
+        console.log(user);
+    }
+    if(loading){
+        return <Loading/>
+    }
+    const submitAlert = () =>{
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Login Completed',
+            showConfirmButton: false,
+            timer: 1500
+          })
+    }
+    const handleLogin = event =>{
+        event.preventDefault();
+        const email = emailRef.current.valueOf;
+        const password = passRef.current.valueOf;
+        signInWithEmailAndPassword(email,password);
     }
     return (
         <section className='mb-20'>
             <div className='flex justify-center pt-20 pb-20 login-container'>
             <div className="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
-                <form>
+                <form onSubmit={handleLogin}>
                     <div className="form-group mb-6">
                     <label  className="form-label inline-block mb-2 text-gray-700">Email address</label>
                     <input type="email" className="form-control
@@ -61,7 +94,9 @@ const Login = () => {
                         className="text-blue-600 hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out">Forgot
                         password?</a>
                     </div>
-                    <button type="submit" className="
+                    <button
+                    onClick={submitAlert}
+                    type="submit" className="
                     w-full
                     px-6
                     py-2.5
