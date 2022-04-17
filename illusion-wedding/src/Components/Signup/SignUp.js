@@ -65,12 +65,6 @@ const SignUp = () => {
                   focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput126"
                   placeholder="Password"/>
               </div>
-              <div className="form-group form-check text-center mb-6">
-                <input type="checkbox"
-                  className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain mr-2 cursor-pointer"
-                  id="exampleCheck25"/>
-                <label className="form-check-label inline-block text-gray-800" >Subscribe to our newsletter</label>
-              </div>
               <button type="submit" className="
                 w-full
                 px-6
