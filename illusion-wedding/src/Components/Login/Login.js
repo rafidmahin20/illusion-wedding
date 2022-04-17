@@ -30,7 +30,7 @@ const Login = () => {
                         ease-in-out
                         m-0
                         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInputEmail2"
-                        aria-describedby="emailHelp" placeholder="Enter email"/>
+                        aria-describedby="emailHelp" placeholder="Enter email" required/>
                     </div>
                     <div className="form-group mb-6">
                     <label className="form-label inline-block mb-2 text-gray-700">Password</label>
@@ -48,7 +48,7 @@ const Login = () => {
                         ease-in-out
                         m-0
                         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInputPassword2"
-                        placeholder="Password"/>
+                        placeholder="Password" required/>
                     </div>
                     <div className="flex justify-between items-center mb-6">
                     <div className="form-group form-check">
