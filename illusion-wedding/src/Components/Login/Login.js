@@ -9,7 +9,7 @@ const Login = () => {
     }
     return (
         <section className='mb-20'>
-            <div className='flex justify-center pt-20 pb-20'>
+            <div className='flex justify-center pt-20 pb-20 login-container'>
             <div className="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
                 <form>
                     <div className="form-group mb-6">
