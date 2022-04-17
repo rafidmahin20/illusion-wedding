@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import Social from '../Social/Social';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -13,7 +14,7 @@ const Login = () => {
             <div className="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
                 <form>
                     <div className="form-group mb-6">
-                    <label for="exampleInputEmail2" className="form-label inline-block mb-2 text-gray-700">Email address</label>
+                    <label  className="form-label inline-block mb-2 text-gray-700">Email address</label>
                     <input type="email" className="form-control
                         block
                         w-full
@@ -32,7 +33,7 @@ const Login = () => {
                         aria-describedby="emailHelp" placeholder="Enter email"/>
                     </div>
                     <div className="form-group mb-6">
-                    <label for="exampleInputPassword2" className="form-label inline-block mb-2 text-gray-700">Password</label>
+                    <label className="form-label inline-block mb-2 text-gray-700">Password</label>
                     <input type="password" className="form-control block
                         w-full
                         px-3
@@ -54,7 +55,7 @@ const Login = () => {
                         <input type="checkbox"
                         className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
                         id="exampleCheck2"/>
-                        <label className="form-check-label inline-block text-gray-800" for="exampleCheck2">Remember me</label>
+                        <label className="form-check-label inline-block text-gray-800" >Remember me</label>
                     </div>
                     <a href="#!"
                         className="text-blue-600 hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out">Forgot
@@ -81,6 +82,7 @@ const Login = () => {
                     <p className="text-gray-800 mt-6 text-center">Not a member? <a onClick={ navigateRegister} href="#!"
                         className="text-blue-600 hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out">Register</a>
                     </p>
+                    <Social/>
                 </form>
             </div>
         </div>
