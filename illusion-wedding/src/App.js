@@ -7,7 +7,8 @@ import Header from './Components/Header/Header';
 import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
 import NotFound from './Components/NotFound/NotFound';
-import Services from './Components/Services/Services';
+import ServicePage from './Components/Services/ServicePage';
+
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
       <Header></Header>
       <Routes>
         <Route path='/' element={<Home/>}/>
-        <Route path='/services' element={<Services/>}/>
+        <Route path='/services' element={<ServicePage/>}/>
         <Route path='/blogs' element={<Blogs/>}/>
         <Route path='/aboutme' element={<AboutMe/>}/>
         <Route path='/footer' element={<Footer/>}/>
