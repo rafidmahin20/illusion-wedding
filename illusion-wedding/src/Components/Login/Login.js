@@ -13,7 +13,7 @@ const Login = () => {
   const from = location.state?.from?.pathname || '/'
 
 //   let from = location.state?.from?.pathname || "/";
-//   let errorElement;
+  let errorElement;
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
 
@@ -23,9 +23,9 @@ const Login = () => {
   if (user) {
     navigate(from, {replace: true});
   }
-//   if (error) {
-//     errorElement = <p className="text-red-400">Error: {error?.message}</p>;
-//   }
+  if (error) {
+    errorElement = <p className="text-red-400">Error: {error?.message}</p>;
+  }
   if (loading) {
     return <Loading />;
   }
@@ -80,7 +80,7 @@ const Login = () => {
             <p className="text-gray-800 mt-6 text-center">Already a member? <a onClick={ navigateRegister} href="#!"
             className="text-blue-600 hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out">Please Register</a></p>
             <Social />
-            {/* {errorElement} */}
+            {errorElement}
           </form>
         </div>
       </div>
