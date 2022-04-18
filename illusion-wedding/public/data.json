@@ -1,41 +1,41 @@
 [
     {
-      "_id": "1",
+      "id": "1",
       "picture": "https://i.ibb.co/M5bJtt1/weddingpic2.jpg",
       "price": 29555,
       "name": "package one",
       "short_description": "1 senior photographer 1 cinematofrapher 4r printed pictures [150]"
     },
     {
-      "_id": "2",
+      "id": "2",
       "picture": "https://i.ibb.co/8s5x0KF/wedpic3.jpg",
       "price": 42498,
       "name": "package two",
       "short_description": "1 senior photographer 1 associate photographer 4r printed pictures [150]"
     },
     {
-      "_id": "3",
+      "id": "3",
       "picture": "https://i.ibb.co/HXnk3tN/wedpic4.jpg",
       "price": 36554,
       "name": "package three",
       "short_description": "1 senior photographer 1 chief photographer 4r printed pictures [150]"
     },
     {
-      "_id": "4",
+      "id": "4",
       "picture": "https://i.ibb.co/MhGLvLj/wedpic5.jpg",
       "price": 39599,
       "name": "package four",
       "short_description": "1 senior photographer 1 chief photographer 1 photo album"
     },
     {
-      "_id": "5",
+      "id": "5",
       "picture": "https://i.ibb.co/wyXsCkk/wedpic6.jpg",
       "price": 52681,
       "name": "package five",
       "short_description": "1 senior photographer 2 chief photographer 1 photo album"
     },
     {
-      "_id": "6",
+      "id": "6",
       "picture": "https://i.ibb.co/tX0qK5R/wedpic7.jpg",
       "price": 28968,
       "name": "package six",
