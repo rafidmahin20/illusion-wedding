@@ -10,6 +10,7 @@ const Login = () => {
   const emailRef = useRef("");
   const passRef = useRef("");
   const location = useLocation();
+  const from = location.state?.from?.pathname || '/'
 
 //   let from = location.state?.from?.pathname || "/";
 //   let errorElement;
@@ -20,7 +21,7 @@ const Login = () => {
     navigate("/signup");
   };
   if (user) {
-    navigate('/');
+    navigate(from, {replace: true});
   }
 //   if (error) {
 //     errorElement = <p className="text-red-400">Error: {error?.message}</p>;
