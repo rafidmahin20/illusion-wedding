@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useLocation, useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
 import auth from "../Firebase/Firebase.init";
 import Loading from "../Loading/Loading";
 import Social from "../Social/Social";
@@ -12,8 +11,8 @@ const Login = () => {
   const passRef = useRef("");
   const location = useLocation();
 
-  let from = location.state?.from?.pathname || "/";
-  let errorElement;
+//   let from = location.state?.from?.pathname || "/";
+//   let errorElement;
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
 
@@ -21,18 +20,19 @@ const Login = () => {
     navigate("/signup");
   };
   if (user) {
-    navigate(from, { replace: true });
+    navigate('/');
   }
-  if (error) {
-    errorElement = <p className="text-red-400">Error: {error?.message}</p>;
-  }
+//   if (error) {
+//     errorElement = <p className="text-red-400">Error: {error?.message}</p>;
+//   }
   if (loading) {
     return <Loading />;
   }
-  const handleLogin = (event) => {
+  const handleLogin = event => {
     event.preventDefault();
-    const email = emailRef.current.valueOf;
-    const password = passRef.current.valueOf;
+    const email = emailRef.current.value;
+    const password = passRef.current.value;
+    console.log(email,password);
     signInWithEmailAndPassword(email, password);
   };
   return (
@@ -48,6 +48,7 @@ const Login = () => {
                 Email
               </label>
               <input
+              ref={emailRef}
                 type="email"
                 name="email"
                 className="bg-gray-50 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 focus:outline-none w-full p-2.5"
@@ -63,6 +64,7 @@ const Login = () => {
                 Password
               </label>
               <input
+              ref={passRef}
                 type="password"
                 name="password"
                 className="bg-gray-50 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 focus:outline-none block w-full p-2.5"
@@ -77,7 +79,7 @@ const Login = () => {
             <p className="text-gray-800 mt-6 text-center">Already a member? <a onClick={ navigateRegister} href="#!"
             className="text-blue-600 hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out">Please Register</a></p>
             <Social />
-            {errorElement}
+            {/* {errorElement} */}
           </form>
         </div>
       </div>

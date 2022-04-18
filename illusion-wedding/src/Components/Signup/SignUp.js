@@ -14,19 +14,20 @@ const SignUp = () => {
       error,
     ] = useCreateUserWithEmailAndPassword(auth);
     if(user){
-      console.log(user);
+      navigate('/')
     }
     if(loading){
       return <Loading/>
     }
-    const handleSignup = async event =>{
+    const handleSignup =  event =>{
       event.preventDefault();
       const name = event.target.name.value;
       const email = event.target.email.value;
       const password = event.target.password.value;
       
-      await createUserWithEmailAndPassword(email, password);
-      navigate('/home');
+      createUserWithEmailAndPassword(email, password);
+      // navigate('/home');
+     
     }
     const navigateLogin = () =>{
         navigate('/login');
