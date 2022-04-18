@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useLocation, useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 import auth from "../Firebase/Firebase.init";
 import Loading from "../Loading/Loading";
 import Social from "../Social/Social";
@@ -10,7 +11,10 @@ const Login = () => {
   const emailRef = useRef("");
   const passRef = useRef("");
   const location = useLocation();
-  const from = location.state?.from?.pathname || '/'
+  const from = location.state?.from?.pathname || '/';
+  const [sendPasswordResetEmail, passwordSending, passwordError] = useSendPasswordResetEmail(
+    auth
+  );
 
 //   let from = location.state?.from?.pathname || "/";
   let errorElement;
@@ -20,6 +24,15 @@ const Login = () => {
   const navigateRegister = () => {
     navigate("/signup");
   };
+
+  const resetPassword = async() =>{
+    const email = emailRef.current.value;
+    if(email){
+      await sendPasswordResetEmail(email);
+    }else{
+      toast('please put your email address')
+    }
+  }
   if (user) {
     navigate(from, {replace: true});
   }
@@ -77,9 +90,14 @@ const Login = () => {
               className="text-white bg-blue-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-3 disabled:bg-blue-400 cursor-pointer disabled:cursor-not-allowed disabled:text-white"
               value="Login"
             />
+            <p className="text-sm font-medium text-gray-900 text-start mr-5 my-5">
+              forgot password?
+              <button onClick={resetPassword} className="text-sm font-medium text-blue-900 hover:underline text-start">Reset Password</button>
+            </p>
             <p className="text-gray-800 mt-6 text-center">Already a member? <a onClick={ navigateRegister} href="#!"
             className="text-blue-600 hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out">Please Register</a></p>
             <Social />
+            <ToastContainer/>
             {errorElement}
           </form>
         </div>
