@@ -27,11 +27,10 @@ const Login = () => {
 
   const resetPassword = async() =>{
     const email = emailRef.current.value;
-    if(email){
+  
       await sendPasswordResetEmail(email);
-    }else{
-      toast('please put your email address')
-    }
+  
+      toast('sent email');
   };
   if (user) {
     navigate(from, {replace: true});
