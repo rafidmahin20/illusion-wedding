@@ -14,7 +14,7 @@ const SignUp = () => {
       error,
     ] = useCreateUserWithEmailAndPassword(auth);
     if(user){
-      navigate('/')
+      navigate('/login')
     }
     if(loading){
       return <Loading/>

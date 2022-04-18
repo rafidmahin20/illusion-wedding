@@ -5,12 +5,11 @@ import auth from '../Firebase/Firebase.init';
 
 const RequireAuth = ({children}) => {
     let location = useLocation();
-    const [user, loading] = useAuthState(auth);
+    const [user] = useAuthState(auth);
     if(user){
-        return children;
-    }else{
         return <Navigate to='/login' state={{from: location}} replace />
     }
+    return children;
 };
 
 export default RequireAuth;
