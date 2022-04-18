@@ -12,7 +12,7 @@ const Login = () => {
   const passRef = useRef("");
   const location = useLocation();
   const from = location.state?.from?.pathname || '/';
-  const [sendPasswordResetEmail, passwordSending, passwordError] = useSendPasswordResetEmail(
+  const [sendPasswordResetEmail, sending, error1] = useSendPasswordResetEmail(
     auth
   );
 
@@ -32,14 +32,14 @@ const Login = () => {
     }else{
       toast('please put your email address')
     }
-  }
+  };
   if (user) {
     navigate(from, {replace: true});
   }
   if (error) {
     errorElement = <p className="text-red-400">Error: {error?.message}</p>;
   }
-  if (loading) {
+  if (loading || sending) {
     return <Loading />;
   }
   const handleLogin = event => {
@@ -97,9 +97,10 @@ const Login = () => {
             <p className="text-gray-800 mt-6 text-center">Already a member? <a onClick={ navigateRegister} href="#!"
             className="text-blue-600 hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out">Please Register</a></p>
             <Social />
-            <ToastContainer/>
+            
             {errorElement}
           </form>
+          <ToastContainer/>
         </div>
       </div>
     </section>
