@@ -27,8 +27,6 @@ const CheckOut = () => {
               <input type='text' name='password' className='bg-gray-50 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 focus:outline-none block w-full p-2.5' required/>
             </div>
             <input type='submit' className='text-white bg-blue-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-3 disabled:bg-blue-400 cursor-pointer disabled:cursor-not-allowed disabled:text-white' value='Proceed' />
-            
-            
           </form>
         </div>
       </div>
