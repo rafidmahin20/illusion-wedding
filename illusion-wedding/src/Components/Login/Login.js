@@ -20,7 +20,7 @@ const Login = () => {
     navigate("/signup");
   };
   if (user) {
-    navigate('/service/:serviceId');
+    navigate('/');
   }
 //   if (error) {
 //     errorElement = <p className="text-red-400">Error: {error?.message}</p>;
